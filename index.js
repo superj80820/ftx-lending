@@ -66,19 +66,18 @@ const doLending = getBalances(timestamp)
       )
     )
   )
-  .then(() =>
-    Promise.all([getBalances(timestamp), getOffers(timestamp)])
-      .then(([balances, offers]) => [
-        getResultByCoin(balances.result),
-        getResultByCoin(offers.result),
-      ])
-      .then(([balances, offers]) =>
-        REQUIRELENDINGS.map((coin) =>
-          balances(coin).total === offers(coin).size
-            ? `${coin} now: ${balances(coin).total}`
-            : `${coin} error`
-        )
-      )
+  .then(() => Promise.all([getBalances(timestamp), getOffers(timestamp)])
+  )
+  .then(([balances, offers]) => [
+    getResultByCoin(balances.result),
+    getResultByCoin(offers.result),
+  ])
+  .then(([balances, offers]) =>
+    REQUIRELENDINGS.map((coin) =>
+      balances(coin).total === offers(coin).size
+        ? `${coin} now: ${balances(coin).total}`
+        : `${coin} error`
+    )
   )
   .then((res) => console.log(res))
   .catch((error) => console.error(error));
