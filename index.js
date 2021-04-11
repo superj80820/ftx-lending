@@ -4,6 +4,7 @@ const crypto = require("crypto");
 const API_KEY = process.argv[2];
 const API_SECRET = process.argv[3];
 const REQUIRELENDINGS = process.argv[4].split(",");
+const DURATION = process.argv[5];
 const BASE_URL = "https://ftx.com";
 
 const authHeader = (method) => (postPayloadString) => (path) => (
@@ -83,4 +84,4 @@ const doLending = () =>
     .catch((error) => console.error(error));
 
 doLending();
-setInterval(doLending, 3600000);
+setInterval(doLending, DURATION);
