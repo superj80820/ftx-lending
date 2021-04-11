@@ -54,9 +54,8 @@ const submitOffer = (timestamp) => (coin) => (size) => (rate) => {
 const getResultByCoin = (results) => (coin) =>
   results.reduce((a, b) => (b.coin === coin ? { ...b } : a), {});
 
-const timestamp = new Date().getTime();
-
-const doLending = () =>
+const doLending = () => {
+  const timestamp = new Date().getTime();
   getBalances(timestamp)
     .then((json) =>
       json.result.filter((balances) => REQUIRELENDINGS.includes(balances.coin))
@@ -82,6 +81,7 @@ const doLending = () =>
     )
     .then((res) => console.log(res))
     .catch((error) => console.error(error));
+};
 
 doLending();
 setInterval(doLending, DURATION);
