@@ -55,32 +55,32 @@ const getResultByCoin = (results) => (coin) =>
 
 const timestamp = new Date().getTime();
 
-const doLending = getBalances(timestamp)
-  .then((json) =>
-    json.result.filter((balances) => REQUIRELENDINGS.includes(balances.coin))
-  )
-  .then((balances) =>
-    Promise.all(
-      balances.map((balance) =>
-        submitOffer(timestamp)(balance.coin)(balance.total)(1e-6)
+const doLending = () =>
+  getBalances(timestamp)
+    .then((json) =>
+      json.result.filter((balances) => REQUIRELENDINGS.includes(balances.coin))
+    )
+    .then((balances) =>
+      Promise.all(
+        balances.map((balance) =>
+          submitOffer(timestamp)(balance.coin)(balance.total)(1e-6)
+        )
       )
     )
-  )
-  .then(() => Promise.all([getBalances(timestamp), getOffers(timestamp)])
-  )
-  .then(([balances, offers]) => [
-    getResultByCoin(balances.result),
-    getResultByCoin(offers.result),
-  ])
-  .then(([balances, offers]) =>
-    REQUIRELENDINGS.map((coin) =>
-      balances(coin).total === offers(coin).size
-        ? `${coin} now: ${balances(coin).total}`
-        : `${coin} error`
+    .then(() => Promise.all([getBalances(timestamp), getOffers(timestamp)]))
+    .then(([balances, offers]) => [
+      getResultByCoin(balances.result),
+      getResultByCoin(offers.result),
+    ])
+    .then(([balances, offers]) =>
+      REQUIRELENDINGS.map((coin) =>
+        balances(coin).total === offers(coin).size
+          ? `${coin} now: ${balances(coin).total}`
+          : `${coin} error`
+      )
     )
-  )
-  .then((res) => console.log(res))
-  .catch((error) => console.error(error));
+    .then((res) => console.log(res))
+    .catch((error) => console.error(error));
 
-doLending;
-setInterval(() => doLending, 3600000);
+doLending();
+setInterval(doLending, 3600000);
