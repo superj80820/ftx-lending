@@ -1,0 +1,25 @@
+{
+  "name": "ftx-lending",
+  "version": "1.0.0",
+  "description": "## How to use?",
+  "main": "main.js",
+  "dependencies": {
+    "got": "^11.8.2",
+    "lodash": "^4.17.21",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superj80820/ftx-lending.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superj80820/ftx-lending/issues"
+  },
+  "homepage": "https://github.com/superj80820/ftx-lending#readme"
+}
