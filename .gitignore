@@ -1,6 +1,7 @@
 *~
 .idea
 node_modules
+main.js
 /.DS_Store
 .DS_Store
 /classes

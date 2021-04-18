@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ddd8eb8f-b564-4c53-a71d-d409aab456c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ftx-lending.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ftx-lending.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
       <workItem from="1618656989640" duration="1432000" />
       <workItem from="1618721271485" duration="10006000" />
       <workItem from="1618755389344" duration="1897000" />
-      <workItem from="1618757629764" duration="170000" />
+      <workItem from="1618757629764" duration="632000" />
     </task>
     <servers />
   </component>
